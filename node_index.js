@@ -24,8 +24,60 @@ const http = require('http');
 const server = http.createServer();
 
 server.on('request',(request,response)=>{
-   response.writeHead(200,{'Content-Type':'text/plain'});
-   response.write('<h1>hello world!</h1>?');
+   response.writeHead(200,{'Content-Type':'text/html'});
+   response.write(`
+   <!DOCTYPE HTML>
+   <html>
+   <head>
+     <title>COVID Counter</title>
+     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+     
+     
+     <link rel="stylesheet" href="stylesheet.css">
+   </head>
+   <body>
+       <h1>Hello world!</h1>
+       <button id="snap-button" onclick="takePhoto()">take photo</button>
+       <button id="flip-camera" onclick="flipCamera()">flip camera</button>
+       <!--ask user for location-->
+       <!--button to access camera and upload photo-->
+       <video id="webcam" autoplay playsinline width="640" height="480"></video>
+       <canvas id="canvas" class="d-none"></canvas>
+       <audio id="snapSound" src="audio/snap.mp3" preload = "auto"></audio>
+   
+       <!--<script src="index.js"></script>-->
+       <script>
+           const webcamElement = document.getElementById('webcam');
+           const canvasElement = document.getElementById('canvas');
+           const snapSoundElement = document.getElementById('snapSound');
+           const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+           const snapButton = document.getElementById('snap-button');
+   
+   
+           webcam.start()
+           .then(result =>{
+               console.log("webcam started");
+           })
+           .catch(err => {
+               console.log(err);
+           });
+   
+           let takePhoto = async() => {
+               let picture = webcam.snap();
+               console.log('photo taken');
+               console.log(picture);
+               document.getElementById('p');
+               // document.querySelector('#download-photo').href = picture;
+           };
+   
+           let flipCamera = () => {
+               webcam.flip(); 
+               webcam.start();
+           };
+       </script>
+   </body>
+   </html>
+`);
    response.end();
 });
 
