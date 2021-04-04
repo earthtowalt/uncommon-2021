@@ -1,0 +1,65 @@
+goal stack:
+
+webapp created with 
+    react/vue/angular
+   
+backend?
+api requests?
+
+Want to do something with big data? 
+
+Fintech ideas? 
+
+
+What about hardware hack? 
+
+It would be cool to have hardware talk to google functions? 
+
+Or is that necessary? Hardware should probably directly communicate with server. The server should communicate with 
+
+take photos of an object with phone from many different angles, from this construct a 3D map, from this guess what the object is, 
+from this generate an animation, from this display the 3D object in the browser with AR? 
+
+Three.js seems very cool
+
+DIY face filter maker
+
+website 
+
+Camera on
+
+Draw 3d filter / import objects to create the filter
+
+attach the filter to your face in some way
+
+Camera controlled chess player
+
+
+COVID COUNTER
+
+GOAL ::: Tell you how many people in a picture likely have COVID? 
+
+Static website that asks you to take a picture of the crowd and asks for your location. 
+After providing both, output statistics and a highlighted photo. 
+
+input: 
+- photo of crowd
+- location
+
+intermediate steps
+- ping covid data api to get an estimated density 
+- ping google-cloud-function that takes in photo and returns helpful info
+
+show statistics: 
+- how many people are in this crowd? 
+- how many people have covid? 
+- how likely is it that nobody in the crowd has covid? 
+- randomly highlight people in the crowd to show the "covid density"
+
+PROBLEM: finding NN to count/locate heads
+- found crowd counting paper (2020): 
+    - https://arxiv.org/pdf/1906.07538.pdf
+- similar idea, seems easier to run (2019): 
+    - https://arxiv.org/pdf/1908.06473v1.pdf
+- just doing face recognition in crowd? 
+    - google api face detection
