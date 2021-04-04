@@ -1,7 +1,7 @@
 
 console.log('hello');
 
-const api_key = "AIzaSyBNLJL-zc-oqI5ZPsCpYbWUV2YtgX9jrsM";
+const api_key = "";
 
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
